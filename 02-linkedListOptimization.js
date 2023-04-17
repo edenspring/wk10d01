@@ -71,7 +71,7 @@ class LinkedList {
             console.log("The next value is: ", current.value)
             current = current.next;
         }
-        console.log("Value at tail    : ", current)
+        console.log("Value at tail    : ", current.value)
     }
 }
 
@@ -83,3 +83,29 @@ class LinkedListNode {
     }
 }
 const myLinkedList = new LinkedList()
+myLinkedList.addToTail(1)
+myLinkedList.addToTail(2)
+myLinkedList.addToTail(3)
+myLinkedList.addToTail(4)
+myLinkedList.addToHead(0)
+myLinkedList.addToHead(-1)
+myLinkedList.addToHead(-2)
+myLinkedList.addToHead(-3)
+myLinkedList.traverse()
+
+console.log(myLinkedList.removeFromHead())
+console.log(myLinkedList.removeFromHead())
+console.log(myLinkedList.removeFromTail())
+console.log(myLinkedList.removeFromTail())
+
+
+/*
+It works, but it takes a fair bit more mental parsing to understand how the 
+code is accomplishing the given task. Take a moment to consider the 
+remvoeFromTail method. What's the time efficiency of that method?
+
+How can we improve it?
+
+One way to improve it would be by moving from singly to doubly linked list. 
+Consider the following:
+*/
