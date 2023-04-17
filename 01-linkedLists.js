@@ -79,3 +79,33 @@ does it end?
 // 6 -> 4 -> 2 -> null
 
 myList.traverse()
+
+/*
+Nifty stuff! But how might that all be stored in memory. Well, let's consider 
+this:
+
+192: ...
+196: 220            // Linked List `head` pointer
+200: 0b00000010     // First node added, last in the list
+204: null
+208: 0b00000100     // Second node added, second in the list
+216: 200
+220: 0b00000110     // Third node added, first in the list
+224: 208
+230: ...
+
+We've got registers set aside to say "Here's where you can find a node",  and 
+registers that hold the values. When we add new nodes, we need to update create
+a new node, setting aside memory for the value of the node and where we can 
+find the next one. Then, we update that node's next value to point to the 
+list's current head, then the list's head to point to the new node.
+
+While that might sound like a lot, it all collapses into O(1) time complexity.
+Keep in mind that this only works when adding to the head. If we insert in the
+middle of our list, we'll need to find the spot where we want to inser the 
+node first, which will change it to an O(n) operation. 
+
+The space complexity of a linked list is O(n) as the space needed to store the
+list increases with each node added. Each node has a space complexity of O(1).
+*/
+
